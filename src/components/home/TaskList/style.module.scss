@@ -1,0 +1,214 @@
+@mixin body__title{
+    color: #91929E;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-bottom: 8px;
+}
+
+@mixin body__content{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    line-height: normal;
+}
+
+.screen{
+    background: #F0F2F5;
+    min-height: 100vh;
+}
+.taskList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 722px;
+    margin: 0 auto;
+    padding-top: 54px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 40px;
+
+    &__title{
+        margin-left: 16px;
+        color: #0A1629;
+        font-family: 'Poppins', sans-serif;
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 36px;
+    }
+
+    &__button{
+        margin-right: 16px;
+        border-radius: 14px;
+        background-color: #713FFF;
+        border: none;
+        color: #FFF;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 13px 30px;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #6138d2;
+            transition: 0.5s;
+        }
+
+        &--icon{
+        padding-right: 12px;
+        font-size: 14px
+        }
+    }
+}
+
+
+.body{
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    padding: 24px 32px;
+    align-items: center;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    &__task{
+        width: 200px;
+
+        &--title{
+            @include body__title;
+        }
+
+        &--content{
+           color: #0A1629;
+            font-weight: 400;
+            @include body__content()
+        }
+    }
+
+    &__priority{
+        width: 72px;
+
+        &--title{
+            @include body__title;
+        }
+
+        &--content{
+            font-weight: 500;
+             @include body__content()
+         }
+
+        .high {
+            color: #F73446;
+        }
+        .medium {
+            color: #FFBD21;
+        }
+        .low {
+            color:#0AC947 ;
+        }
+    }
+
+    &__status{
+        width: 120px;
+        border-radius: 8px;
+        background: #EDEEF0;
+        padding: 8px 0;
+        color: #7D8592;
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        border: none;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    &__icon{
+        width: 24px;
+        height: 24px;
+    }
+
+    &__edit{
+        font-size: 22px;
+        border: none;
+        background-color: #fff;
+        margin-right: 40px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    &__delete{
+        font-size: 20px;
+        color: red;
+        border: none;
+        background-color: #fff;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    @mixin body__title{
+        font-size: 12px;
+    }
+
+    @mixin body__content{
+        font-size: 14px;
+    }
+    .taskList{
+        width: 100%;
+        padding: 0;
+    }    
+
+    .header{
+        margin: 50px 15px 40px;
+    }
+
+    .body{
+        display: flex;
+        flex-direction: column;
+        width: 96%;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 15px;
+        &__task{
+            &--title{
+                @include body__title;
+            }
+    
+            &--content{
+                @include body__content()
+            }
+        }
+        &__priority{
+            &--title{
+                @include body__title;
+            }
+            &--content{
+                 @include body__content()
+             }
+        }
+
+        &__status{
+            width: 100px;
+            padding: 8px;
+            font-size: 12px;
+            border: none;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        &__edit{
+            margin-right: 24px;
+        }
+    }
+}
